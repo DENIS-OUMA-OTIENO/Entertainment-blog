@@ -62,7 +62,14 @@ if(isSuccess){
   : <MainFeaturedPost postId={mainFeaturedPostRoot} isLoading={isLoading} />;
   
 
-}  
+} 
+let mainPostContent
+  if(!mainPost){
+    mainPostContent = <Skeleton variant="rectangular" height={400} sx={{ borderRadius: 0 }} />
+  } else {
+    mainPostContent = mainPost
+  } 
+     
   return (
     <ThemeProvider theme={defaultTheme}>
       {/* <CssBaseline /> */}
@@ -70,7 +77,7 @@ if(isSuccess){
         <Header  sections={sections}  />
         <Container sx={{ width: { xs: '100%', sm: 700 }, }}>
         <main>
-        {mainPost}
+        {mainPostContent}
           <Grid container spacing={4}>
 
           
