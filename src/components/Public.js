@@ -63,13 +63,13 @@ if(isSuccess){
   
 
 } 
-let mainPostContent
-  if(!mainPost){
+
+  let mainPostContent
+  if(isLoading){
     mainPostContent = <Skeleton variant="rectangular" height={400} sx={{ borderRadius: 0 }} />
   } else {
     mainPostContent = mainPost
   } 
-     
   return (
     <ThemeProvider theme={defaultTheme}>
       {/* <CssBaseline /> */}
