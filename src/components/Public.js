@@ -71,23 +71,7 @@ if(isSuccess){
     mainPostContent = mainPost
   } 
 
-let featuredPostsContent
-  if(isLoading){
-  featuredPostsContent = (
-    <Grid item xs={12} md={6}>
-      <Card sx={{ display: 'flex', flexDirection: 'row', width: 320, height: 100 }}>
-        <Skeleton variant="rectangular" width={100} height={100} />
-        <CardContent sx={{ flex: 1 }}>
-          <Skeleton variant="text" width="80%" height={30} />
-          <Skeleton variant="text" width="100%" height={20} />
-          <Skeleton variant="text" width="100%" height={20} />
-        </CardContent>
-      </Card>
-    </Grid>
-  )
-} else {
-  featuredPostsContent = featuredPost
-}
+
   return (
     <ThemeProvider theme={defaultTheme}>
       {/* <CssBaseline /> */}
@@ -99,7 +83,7 @@ let featuredPostsContent
           <Grid container spacing={4}>
 
           
-            {featuredPostsContent}
+            {featuredPost}
           
             
           </Grid>
