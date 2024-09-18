@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
@@ -195,4 +195,6 @@ const PostPage = ({ post }) => {
   )
 }
 
-export default PostPage
+const MemoizedPostPage = memo(PostPage)
+
+export default MemoizedPostPage
