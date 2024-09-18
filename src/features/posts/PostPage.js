@@ -107,7 +107,7 @@ const PostPage = ({ post }) => {
               sx={{ 
                 width: { xs: '100%', sm: 700 }, 
                 height: { xs: 'auto', sm: 'auto' }, 
-                objectFit: 'cover' }}
+                objectFit: 'contain' }}
             >
               <source src={post.imageVideoUrl} type="video/mp4" />
               Your browser does not support the video tag.
