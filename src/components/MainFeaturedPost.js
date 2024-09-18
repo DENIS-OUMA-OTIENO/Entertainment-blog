@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { memo } from 'react'
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid2';
@@ -122,7 +123,8 @@ const MainFeaturedPost = ({ postId, isLoading }) => {
     </Paper>
   );
 }
+const MemoizedFeaturedPost = memo(MainFeaturedPost)
+
+export default MemoizedFeaturedPost;
 
 
-
-export default MainFeaturedPost;
