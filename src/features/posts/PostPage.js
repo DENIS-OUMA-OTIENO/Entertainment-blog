@@ -97,7 +97,7 @@ const PostPage = ({ post }) => {
               sx={{ 
                 
                 width: { xs: '100%', sm: 700 }, 
-                height: { xs: 'auto', sm: '400' }, 
+                height: { xs: 'auto', sm: 400 }, 
                 objectFit: 'cover' }}
             />
           ) : (
@@ -106,7 +106,7 @@ const PostPage = ({ post }) => {
               controls
               sx={{ 
                 width: { xs: '100%', sm: 700 }, 
-                height: { xs: 'auto', sm: 'auto' }, 
+                height: { xs: 'auto', sm: 400 }, 
                 objectFit: 'contain' }}
             >
               <source src={post.imageVideoUrl} type="video/mp4" />
