@@ -64,12 +64,32 @@ if(isSuccess){
 
 } 
 
-  let mainPostContent
-  if(isLoading){
-    mainPostContent = <Skeleton variant="rectangular" height={400} sx={{ borderRadius: 0 }} />
-  } else {
-    mainPostContent = mainPost
-  } 
+let mainPostContent = isLoading ? (
+  <Skeleton variant="rectangular" height={400} sx={{ borderRadius: 0 }} />
+) : (
+  mainPost
+);
+
+// Featured Posts Loading Skeleton
+let featuredPostsContent = isLoading ? (
+  <>
+    {[1, 2].map((_, index) => (
+      <Grid item xs={12} md={6} key={index}>
+        <Card sx={{ display: 'flex', flexDirection: 'row', width: 320, height: 100 }}>
+          <Skeleton variant="rectangular" width={100} height={100} />
+          <CardContent sx={{ flex: 1 }}>
+            <Skeleton variant="text" width="80%" height={30} />
+            <Skeleton variant="text" width="100%" height={20} />
+            <Skeleton variant="text" width="100%" height={20} />
+          </CardContent>
+        </Card>
+      </Grid>
+    ))}
+  </>
+) : (
+  featuredPost
+);
+
 
 
   return (
@@ -83,7 +103,7 @@ if(isSuccess){
           <Grid container spacing={4}>
 
           
-            {featuredPost}
+            {featuredPostsContent}
           
             
           </Grid>
