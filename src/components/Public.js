@@ -8,6 +8,9 @@ import Header from './Header'
 import Footer from './Footer';
 import { useGetPostsQuery } from '../features/DashBoard/posts/postsApiSlice';
 import { useParams } from 'react-router-dom';
+import Skeleton from '@mui/material/Skeleton';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 const sections = [
   { title: 'Technology', url: '#' },
