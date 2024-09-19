@@ -30,9 +30,10 @@ const ShowPostPage = () => {
             <Skeleton variant="text" height={40} width="80%" /> 
             <Skeleton variant="text" height={20} width="100%" /> 
             <Skeleton variant="text" height={20} width="100%" /> 
-        </Box>)
+        </Box>
         <Footer />
         </>
+        )
     } else {
     content = <PostPage post={post}/>
     }
