@@ -7,6 +7,15 @@ import { useParams } from 'react-router-dom'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 
+const sections = [
+    { title: 'Technology', url: '#' },
+    { title: 'Science', url: '#' },
+    { title: 'Facts', url: '#' },
+    { title: 'History', url: '#' },
+    { title: 'Health', url: '#' },
+    { title: 'Style', url: '#' },
+    { title: 'Travel', url: '#' },
+  ];
 
 const ShowPostPage = () => {
     // const postId = useSelector(state => state.post.postId)
