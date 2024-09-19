@@ -82,13 +82,7 @@ const MainFeaturedPost = ({ postId, isLoading }) => {
             
             }}
           >
-            {isLoading ? (
-              <>
-                <Skeleton variant="text" width="80%" height={50} />
-                <Skeleton variant="text" width="60%" height={30} />
-              </>
-            ) : (
-              <>
+            
                 <Typography 
                
                 gutterBottom
@@ -119,8 +113,7 @@ const MainFeaturedPost = ({ postId, isLoading }) => {
                 >
                   <span dangerouslySetInnerHTML={{ __html: strippedPostDescription }} />
                 </Typography>
-              </>
-            )}
+             
             
           </Box>
         </Grid>
