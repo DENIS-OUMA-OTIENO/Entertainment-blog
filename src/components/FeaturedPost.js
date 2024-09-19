@@ -42,20 +42,7 @@ function FeaturedPost({ postId, isLoading }) {
   const handleMediaLoad = () => {
     setImageLoaded(true);
   }
-  if(isLoading){
-    return (
-      <Grid item xs={12} md={6}>
-        <Card sx={{ display: 'flex', flexDirection: 'row', width: 320, height: 100 }}>
-          <Skeleton variant="rectangular" width={100} height={100} />
-          <CardContent sx={{ flex: 1 }}>
-            <Skeleton variant="text" width="80%" height={30} />
-            <Skeleton variant="text" width="100%" height={20} />
-            <Skeleton variant="text" width="100%" height={20} />
-          </CardContent>
-        </Card>
-      </Grid>
-    )
-  }
+ 
 
 
   return (
