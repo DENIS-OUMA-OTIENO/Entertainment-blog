@@ -18,6 +18,7 @@ const MainFeaturedPost = ({ postId, isLoading }) => {
 
   const strippedPostTitle = DOMPurify.sanitize(post.title)
   const strippedPostDescription = DOMPurify.sanitize(post.description)
+  const [imageLoaded, setImageLoaded] = React.useState(false)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -25,6 +26,10 @@ const MainFeaturedPost = ({ postId, isLoading }) => {
   const handlePostClick = () => {
     dispatch(setPostId(postId))
     navigate(`/${post.category}/${post.slug}`)
+  }
+
+  const handleImageLoad = () => {
+    setImageLoaded(true)
   }
   return (
     <Paper
@@ -37,7 +42,7 @@ const MainFeaturedPost = ({ postId, isLoading }) => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url(${post.imageVideoUrl})`,
+        backgroundImage: imageLoaded ? `url(${post.imageVideoUrl})` : 'none',
         borderRadius: 0, 
         display: 'flex',
         alignItems: 'end', 
@@ -49,7 +54,7 @@ const MainFeaturedPost = ({ postId, isLoading }) => {
       {isLoading ? (
       <Skeleton variant="rectangular" height={400} sx={{ borderRadius: 0 }} />
     ) : (
-      <img style={{ display: 'none' }} src={post.imageVideoUrl} alt={post.title} />
+      <img style={{ display: 'none' }} src={post.imageVideoUrl} alt={post.title} onLoad={handleImageLoad} />
     )}
       
       
