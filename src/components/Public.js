@@ -102,11 +102,11 @@ let featuredPostsContent = isLoading ? (
         <Header  sections={sections}  />
         <Container sx={{ width: { xs: '100%', sm: 700 }, }}>
         <main>
-        {mainPostContent}
+        {mainPost}
           <Grid container spacing={4}>
 
           
-            {featuredPostsContent}
+            {featuredPost}
           
             
           </Grid>
