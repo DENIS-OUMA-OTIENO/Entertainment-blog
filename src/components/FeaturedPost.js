@@ -17,6 +17,8 @@ import DOMPurify from "dompurify";
 
 function FeaturedPost({ postId, isLoading }) {
   const post = useSelector(state => selectPostById(state, postId))
+  const [imageLoaded, setImageLoaded] = React.useState(false);
+
   
   const isImage = (url) => {
     return /\.(jpeg|jpg|gif|png|avif)$/.test(url)
@@ -37,7 +39,9 @@ function FeaturedPost({ postId, isLoading }) {
     dispatch(setPostId(postId))
     navigate(`/${post.category}/${post.slug}`)
   }
-
+  const handleMediaLoad = () => {
+    setImageLoaded(true);
+  }
   if(isLoading){
     return (
       <Grid item xs={12} md={6}>
@@ -71,41 +75,48 @@ function FeaturedPost({ postId, isLoading }) {
           
         }}
           >
-       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1  }}>
-
-        {isImage(post.imageVideoUrl) ? (
-            <CardMedia
-              component="img"
-              image={post.imageVideoUrl}
-              alt={<span dangerouslySetInnerHTML={{ __html: strippedPostTitle }} />}
-              sx={{ width: { xs: 100, sm: 100 }, height: { xs: 100, sm: '100%' }, objectFit: 'cover' }}
-            />
-          ) : (
-            <CardMedia
-              component="img"
-              image="/thumbnail.png" 
-              alt={<span dangerouslySetInnerHTML={{ __html: strippedPostTitle }} />}
-              sx={{ width: { xs: 100, sm: 100 }, height: { xs: 100, sm: '100%' }, objectFit: 'cover' }}
-            />
-
-          )}
-          {!isImage(post.imageVideoUrl) && (
-            <IconButton 
-             
-              onClick={handlePostClick}
-              sx={{ 
-                // margin: '8px 4px', 
-                display: 'block',
-                fontSize: '0.5rem', 
-                width: '2.2rem',
-                height: '2.2rem',
-                color: 'white', 
-                backgroundColor: '#0d663e',
-              }}
-            >
-              <PlayArrowIcon />             
-            </IconButton>
-          )}
+       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
+            {isImage(post.imageVideoUrl) ? (
+              <>
+                {!imageLoaded && (
+                  <Skeleton variant="rectangular" width={100} height={100} />
+                )}
+                <CardMedia
+                  component="img"
+                  image={post.imageVideoUrl}
+                  alt={strippedPostTitle}
+                  sx={{ 
+                    width: { xs: 100, sm: 100 }, 
+                    height: { xs: 100, sm: '100%' }, 
+                    objectFit: 'cover', 
+                    display: imageLoaded ? 'block' : 'none' 
+                  }}
+                  onLoad={handleMediaLoad}
+                />
+              </>
+            ) : (
+              <CardMedia
+                component="img"
+                image="/thumbnail.png"
+                alt={strippedPostTitle}
+                sx={{ width: { xs: 100, sm: 100 }, height: { xs: 100, sm: '100%' }, objectFit: 'cover' }}
+              />
+            )}
+            {!isImage(post.imageVideoUrl) && (
+              <IconButton
+                onClick={handlePostClick}
+                sx={{
+                  display: 'block',
+                  fontSize: '0.5rem',
+                  width: '2.2rem',
+                  height: '2.2rem',
+                  color: 'white',
+                  backgroundColor: '#0d663e',
+                }}
+              >
+                <PlayArrowIcon />
+              </IconButton>
+            )}
           </div>
           <CardContent sx={{ flex: 1, height: 100}}>
             <Typography component="h3" 
