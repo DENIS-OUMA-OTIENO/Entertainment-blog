@@ -105,7 +105,7 @@ function Header(props) {
         borderColor: 'white', 
         backgroundColor: '#ff000d',  
         paddingLeft: 1, 
-        width: '100%', 
+         
                 
         }}>
         
