@@ -76,7 +76,7 @@ const PostPage = ({ post }) => {
   return (
     <>
     <Header sections={sections} />
-    <Container maxWidth="lg" sx={{ width: { xs: '100%', sm: 700 }}}>
+    <Container maxWidth="lg" sx={{ width: { xs: '100%', sm: 700 }, minHeight: '100vh'}}>
     
     <CardActionArea >
         
