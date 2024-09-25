@@ -99,7 +99,7 @@ let featuredPostsContent = isLoading ? (
     <ThemeProvider theme={defaultTheme}>
       {/* <CssBaseline /> */}
       <Header  sections={sections}  />
-      <Container maxWidth="lg" sx={{paddingLeft: '0 !important', paddingRight: '0 !important', minHeight: '100vh  }}>
+      <Container maxWidth="lg" sx={{paddingLeft: '0 !important', paddingRight: '0 !important', minHeight: '100vh'  }}>
         
         <Container sx={{ width: { xs: '100%', sm: 700 }, }}>
         <main>
