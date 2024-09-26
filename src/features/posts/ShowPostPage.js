@@ -34,7 +34,7 @@ const ShowPostPage = () => {
         content = (
         <>
         <Header sections={sections} />
-        <Box>
+        <Box sx={{ minHeight: '100vh' }}>
             <Skeleton variant="rectangular" height={300} /> 
             <Skeleton variant="text" height={40} width="80%" /> 
             <Skeleton variant="text" height={20} width="100%" /> 
