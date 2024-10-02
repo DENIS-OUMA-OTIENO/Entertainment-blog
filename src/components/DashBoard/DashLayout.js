@@ -235,8 +235,7 @@ const DashLayout = () => {
                   flexDirection: 'column',
                   transition: 'width 0.3s ease',
                   width: '100%',
-                  backgroundColor: '#f5f5f5',
-                  boxShadow: 'none'
+                  width: { xs: "fit-content", sm: "auto" }
                   }}>
                 <Outlet />
                 </Paper>
