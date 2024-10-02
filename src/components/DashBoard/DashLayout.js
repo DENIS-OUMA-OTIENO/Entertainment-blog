@@ -234,7 +234,6 @@ const DashLayout = () => {
                   display: 'flex', 
                   flexDirection: 'column',
                   transition: 'width 0.3s ease',
-                  width: '100%',
                   width: { xs: "fit-content", sm: "auto" }
                   }}>
                 <Outlet />
